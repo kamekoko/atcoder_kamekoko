@@ -3,11 +3,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int n;
+int n, q;
 
 int main() {
-  cin >> n;
-  int c[n];
-  c[0] = 1;
-  cout << c[0] << endl;
+
+  cin >> n >> q;
+  int c[n], p[n];
+  for (int i = 0; i < n; i++) cin >> c[i];
+  for (int i = 0; i < n; i++) cin >> p[i];
+
+  for (int k = 0; k < q; k++) {
+    int L, R;
+    cin >> L >> R;
+
+    int sum1 = 0;
+    int sum2 = 0;
+    for (int i = L - 1; i < R; i++) {
+      if (c[i] == 1) sum1 += p[i];
+      else sum2 += p[i];
+    }
+
+    cout << sum1 << endl;
+    cout << sum2 << endl;
+  }
 }
